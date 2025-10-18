@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5xxfc80bchls"
+path="res://.godot/imported/MC Hammer - U Can't Touch This (Lyrics) Not Muted!.mp3-79028a2df5c6de06265427ff7640e9fe.mp3str"
+
+[deps]
+
+source_file="res://art/MC Hammer - U Can't Touch This (Lyrics) Not Muted!.mp3"
+dest_files=["res://.godot/imported/MC Hammer - U Can't Touch This (Lyrics) Not Muted!.mp3-79028a2df5c6de06265427ff7640e9fe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

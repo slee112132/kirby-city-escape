@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5ntjai6ce3ap"]
+
+[ext_resource type="Script" uid="uid://ctj4nkslc8ayo" path="res://enemy.gd" id="1_iifgy"]
+[ext_resource type="Texture2D" uid="uid://cyaufir224e7a" path="res://art/enemy-car-1.png" id="2_epg4t"]
+[ext_resource type="Texture2D" uid="uid://cuebssbllpky3" path="res://art/enemy-electric-1.png" id="3_3yqyl"]
+[ext_resource type="Texture2D" uid="uid://c4o0ld1b0bmxo" path="res://art/enemy-fridge-1.png" id="4_wujgv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hb8ge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_epg4t")
+}],
+"loop": true,
+"name": &"car",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wujgv")
+}],
+"loop": true,
+"name": &"fridge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3yqyl")
+}],
+"loop": true,
+"name": &"pole",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
+size = Vector2(128, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epg4t"]
+size = Vector2(256, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqyl"]
+size = Vector2(32, 64)
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 4
+gravity_scale = 0.0
+script = ExtResource("1_iifgy")
+metadata/_edit_group_ = true
+
+[node name="Obstacles" type="AnimatedSprite2D" parent="."]
+light_mask = 5
+sprite_frames = SubResource("SpriteFrames_hb8ge")
+animation = &"fridge"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Shape_Car" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iifgy")
+
+[node name="Shape_Pole" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_epg4t")
+
+[node name="Shape_Fridge" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3yqyl")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
