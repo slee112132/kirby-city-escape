@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Kirby_City_Escape"
+run/main_scene="uid://qmr8n6ky5yxd"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

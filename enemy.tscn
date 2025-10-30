@@ -1,15 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5ntjai6ce3ap"]
+[gd_scene load_steps=14 format=3 uid="uid://c5ntjai6ce3ap"]
 
 [ext_resource type="Script" uid="uid://ctj4nkslc8ayo" path="res://enemy.gd" id="1_iifgy"]
-[ext_resource type="Texture2D" uid="uid://cyaufir224e7a" path="res://art/enemy-car-1.png" id="2_epg4t"]
+[ext_resource type="Texture2D" uid="uid://cniq48s1n218i" path="res://art/resized-enemy-car-1.png" id="2_iifgy"]
 [ext_resource type="Texture2D" uid="uid://cuebssbllpky3" path="res://art/enemy-electric-1.png" id="3_3yqyl"]
-[ext_resource type="Texture2D" uid="uid://c4o0ld1b0bmxo" path="res://art/enemy-fridge-1.png" id="4_wujgv"]
+[ext_resource type="Texture2D" uid="uid://c11x74qwpbrfk" path="res://art/resized-fridge-1.png" id="3_iifgy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hb8ge"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_epg4t")
+"texture": ExtResource("2_iifgy")
 }],
 "loop": true,
 "name": &"car",
@@ -17,7 +17,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_wujgv")
+"texture": ExtResource("3_iifgy")
 }],
 "loop": true,
 "name": &"fridge",
@@ -33,13 +33,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
-size = Vector2(128, 80)
+size = Vector2(256, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epg4t"]
 size = Vector2(256, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqyl"]
-size = Vector2(32, 64)
+size = Vector2(80, 192)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iifgy"]
+radius = 22.022715
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epg4t"]
+radius = 22.022715
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wujgv"]
+size = Vector2(88, 48)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_iifgy"]
+a = Vector2(-4.7999997, -6.3999996)
+b = Vector2(-7.2, -1.5999999)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_epg4t"]
+a = Vector2(3.1999998, -6.3999996)
+b = Vector2(5.5999994, -0.79999995)
 
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 4
@@ -50,11 +67,12 @@ metadata/_edit_group_ = true
 [node name="Obstacles" type="AnimatedSprite2D" parent="."]
 light_mask = 5
 sprite_frames = SubResource("SpriteFrames_hb8ge")
-animation = &"fridge"
+animation = &"car"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Shape_Car" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_iifgy")
 
 [node name="Shape_Pole" type="CollisionShape2D" parent="."]
@@ -63,5 +81,25 @@ shape = SubResource("RectangleShape2D_epg4t")
 
 [node name="Shape_Fridge" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3yqyl")
+
+[node name="Shape_Car_Left_Wheel" type="CollisionShape2D" parent="."]
+position = Vector2(-54, 49)
+shape = SubResource("CircleShape2D_iifgy")
+
+[node name="Shape_Car_Right_Wheel" type="CollisionShape2D" parent="."]
+position = Vector2(58, 49)
+shape = SubResource("CircleShape2D_epg4t")
+
+[node name="Shape_Car_MT" type="CollisionShape2D" parent="."]
+position = Vector2(-12, -48)
+shape = SubResource("RectangleShape2D_wujgv")
+
+[node name="Car_left_segment" type="CollisionShape2D" parent="."]
+scale = Vector2(10, 10)
+shape = SubResource("SegmentShape2D_iifgy")
+
+[node name="Car_right_segment" type="CollisionShape2D" parent="."]
+scale = Vector2(10, 10)
+shape = SubResource("SegmentShape2D_epg4t")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
