@@ -140,3 +140,9 @@ func _count_enabled_shapes_under(root: Node) -> int:
 		if c.get_child_count() > 0:
 			n += _count_enabled_shapes_under(c)
 	return n
+# Scale this enemy's speed by a factor at runtime (used for difficulty bumps)
+func multiply_speed(f: float) -> void:
+	if f == 0.0: return
+	linear_velocity *= f
+	if " _base_vel" in self: # if you kept a cached base vel as in earlier versions
+		_base_vel *= f
