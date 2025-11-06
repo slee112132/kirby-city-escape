@@ -1,7 +1,7 @@
 extends TextureRect
 
 @export var rise_action: StringName = &"move_up"
-@export var fall_scroll_speed: float = 120.0
+@export var fall_scroll_speed: float = 250.0
 @export var rise_scroll_speed: float = 65.0
 @export var smooth: float = 8.0
 

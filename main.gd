@@ -35,14 +35,14 @@ var _lbl_over_score: Label
 # Difficulty scaling
 const LEVELS := [
 	{"score": 0,   "enemy_mult": 1.00, "spawn_mult": 1.00, "player_mult": 1.00},
-	{"score": 10,  "enemy_mult": 1.15, "spawn_mult": 1.10, "player_mult": 1.05},
-	{"score": 25,  "enemy_mult": 1.35, "spawn_mult": 1.25, "player_mult": 1.10},
-	{"score": 45,  "enemy_mult": 1.60, "spawn_mult": 1.45, "player_mult": 1.18},
-	{"score": 70,  "enemy_mult": 1.90, "spawn_mult": 1.70, "player_mult": 1.25},
-	{"score": 100, "enemy_mult": 2.30, "spawn_mult": 2.00, "player_mult": 1.35},
-	{"score": 150, "enemy_mult": 2.40, "spawn_mult": 2.25, "player_mult": 1.5},
-	{"score": 200, "enemy_mult": 2.5, "spawn_mult": 2.5, "player_mult": 1.75},
-	{"score": 400, "enemy_mult": 2.75, "spawn_mult": 2.75, "player_mult": 2},
+	{"score": 10,  "enemy_mult": 1.15, "spawn_mult": 1.3, "player_mult": 1.05},
+	{"score": 25,  "enemy_mult": 1.35, "spawn_mult": 1.5, "player_mult": 1.10},
+	{"score": 45,  "enemy_mult": 1.60, "spawn_mult": 1.8, "player_mult": 1.18},
+	{"score": 70,  "enemy_mult": 1.90, "spawn_mult": 2, "player_mult": 1.25},
+	{"score": 100, "enemy_mult": 2.30, "spawn_mult": 2.25, "player_mult": 1.35},
+	{"score": 150, "enemy_mult": 2.40, "spawn_mult": 2.5, "player_mult": 1.5},
+	{"score": 200, "enemy_mult": 2.5, "spawn_mult": 3, "player_mult": 1.75},
+	{"score": 400, "enemy_mult": 2.75, "spawn_mult": 3.5, "player_mult": 2},
 ]
 
 var _curr_level_idx: int = 0
